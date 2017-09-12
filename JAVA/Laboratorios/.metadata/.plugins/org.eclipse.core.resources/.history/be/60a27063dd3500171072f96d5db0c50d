@@ -1,0 +1,113 @@
+import java.awt.Canvas;
+import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ListIterator;
+import java.util.Random;
+
+import javax.swing.Timer;
+
+
+
+public class MiCanvas extends Canvas implements ActionListener{
+	
+	
+	private static final long serialVersionUID = 1L;
+	Pelota pel;
+	Pelotas pelotitas;
+	Timer spawn;
+	Timer clock;
+	
+	Random randy;
+
+	
+	
+	public MiCanvas(){
+		super();
+		randy = new Random(System.currentTimeMillis());
+		pelotitas = new Pelotas();
+	
+		spawn = new Timer(2000,this);
+		spawn.start();
+		clock = new Timer(10,this);
+		clock.start();
+		
+		
+		
+		
+		
+		pel = new Pelota(randy.nextInt(50)*10, randy.nextInt(50)*10, 10,10,10);
+		
+		pelotitas.addPelotas(pel);
+		
+	}
+	
+	public void paint(Graphics g)
+    {
+		
+        pelotitas.paint(g); 
+        
+        
+    }
+	
+	
+	public void actionPerformed(ActionEvent e) {
+		
+	    
+	     
+	     
+	     if(e.getSource() == spawn){
+	    	 
+	    	 switch(randy.nextInt(2)){
+	    	 case 0:
+	    		 pelotitas.addPelotas(new Pelota(randy.nextInt(50)*10, randy.nextInt(50)*10, 10,randy.nextInt(10)+1,randy.nextInt(10)+1));
+	    		 break;
+	    	 default:
+	    		 //Para que sea random el tiempo en el que aparecen 
+	    		 break;
+	    	 }
+	    	 
+	    	 
+	     }
+	     Pelota aux;
+	     ListIterator<Pelota> itr = pelotitas.getPelotitas().listIterator();
+	     
+	     
+	     
+	     
+	    	 
+	    	 while(itr.hasNext()){
+	    		 aux =  itr.next();
+	             aux.setX(aux.getX() + aux.getVel_x());
+	             if(aux.getX() <= 0 || aux.getX() >= 500)
+	             {
+	                 aux.setVel_x( aux.getVel_x() * (-1));
+	                 
+	             }
+	             aux.setY(aux.getY() + aux.getVel_y());
+	             if(aux.getY() <= 0 || aux.getY() >= 500)
+	             {
+	            	 aux.setVel_y( aux.getVel_y() * (-1));
+	                 
+	             } 
+	    	 
+	    	 
+	     }
+	    	 
+	    	 
+	    	 
+	    	 
+	  
+	   
+	     
+	    repaint();
+	   
+		
+	}
+	
+	
+	
+	
+	
+
+}

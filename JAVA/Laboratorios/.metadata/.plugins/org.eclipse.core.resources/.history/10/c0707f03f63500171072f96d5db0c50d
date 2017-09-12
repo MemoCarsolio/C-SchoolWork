@@ -1,0 +1,63 @@
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+
+public class Ventana extends JFrame implements ActionListener{
+
+	private static final long serialVersionUID = 1L;
+	private JButton b1;
+	private ElCanvas canvas;
+	private JPanel panel;
+	
+	public Ventana(){
+		super();
+		
+		panel = new JPanel();
+		
+		setLayout(new BorderLayout());
+		b1 = new JButton("click");
+		b1.addActionListener(this);
+		
+		panel.add(b1);
+		
+		this.add(canvas, BorderLayout.NORTH);
+		this.add(panel, BorderLayout.SOUTH);
+		
+		
+
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+	
+
+}

@@ -1,0 +1,37 @@
+import java.awt.Canvas;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Random;
+import javax.swing.Timer;
+
+public class ElCanvas extends Canvas implements ActionListener{
+
+	private static final long serialVersionUID = 1L;
+	private Timer tiempo;
+	private Timer spawn;
+	private Figuras list;
+	private Pelota pelota;
+	private Random randy;
+	
+	public ElCanvas(){
+		
+		tiempo = new Timer(10,this);
+		tiempo.start();
+		spawn = new Timer(100,this);		
+		spawn.start();
+		
+	}
+	
+	
+	
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+	
+
+}

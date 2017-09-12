@@ -1,0 +1,23 @@
+import javax.swing.JFrame;
+
+public class Ventana extends JFrame{
+
+	private ElCanvas canv = new ElCanvas();
+	
+	public Ventana(){
+		super();
+		
+		
+        this.add(canv);
+		
+		
+
+		
+		
+	}
+	
+	
+
+	
+
+}

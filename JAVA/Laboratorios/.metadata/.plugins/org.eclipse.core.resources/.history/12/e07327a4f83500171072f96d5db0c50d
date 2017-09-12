@@ -1,0 +1,24 @@
+import javax.swing.JFrame;
+
+public class Ventana extends JFrame{
+
+	public static final long serialVersionUID = 1L;
+	private ElCanvas canv = new ElCanvas();
+	
+	public Ventana(){
+		super();
+		
+		
+        this.add(canv);
+		
+		
+
+		
+		
+	}
+	
+	
+
+	
+
+}
